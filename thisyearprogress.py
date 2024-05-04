@@ -1,15 +1,16 @@
 import calendar
-from atproto import Client
 import time
 from datetime import date, datetime
+from atproto import Client
+from bb_configs.config import TYP_LOGIN
 
-bot_flag = 'TY progress'
+bot_flag = 'TYP'
 # keep log level in log - False - not published, True - published
 posting_flag = None
 
 
 def get_current_year():
-    return 365 if calendar.isleap(time.gmtime()[0]) is False else 366
+    return 366 if calendar.isleap(time.gmtime()[0]) else 365
 
 
 def get_day_number():
@@ -44,7 +45,7 @@ with open('thisyearprogress_log.txt', mode='r', encoding='utf-8') as log_file:
 # TODO something something about password before github
 def main():
     client = Client()
-    client.login()
+    client.login(TYP_LOGIN)
     client.send_post(text=s_bsky)
 
     print('not equal, added to bluesky', flag, str(date.today()), posting_flag)
