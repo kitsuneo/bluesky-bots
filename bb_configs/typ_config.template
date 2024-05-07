@@ -1,3 +1,4 @@
-TYP_LOGIN = ('youraccount.bsky.social', 'password')
-
+TYP_LOGIN = 'youraccount.bsky.social'
+TYP_PASSWORD = 'password'
+LOG_FILE = 'typ_log.txt'
 
