@@ -6,6 +6,8 @@ from datetime import date, datetime
 
 
 # TODO create pretty config, check if config doesnt exist create the one with default settings
+# TODO Major add run by cron
+# TODO Major Add pytest
 
 def get_current_year():
     return 366 if calendar.isleap(time.gmtime()[0]) else 365
@@ -58,10 +60,10 @@ def update_log(stroka):
 
 
 def main():
-    '''
+    """
     If latest record in log file == today, meaning the bot already posted the message, no need for other postings
     TODO: add check on the correct log record (e.g. starting from date and not from random letters)
-    '''
+    """
 
     if get_latest_log_date(LOG_FILE) == str(date.today()):
         update_log(generate_log_string(False))
